@@ -51,6 +51,12 @@ namespace api.Repository
         }
 
 
+        public async Task<Stock?> GetStockBySymbol(string symbol)
+        {
+            var stockModel = await _context.Stocks.FirstOrDefaultAsync(x => x.Symbol.Equals(symbol));
+            return stockModel;
+        }
+
 
         public async Task<Stock> CreateStockAsync(Stock stockModel)
         {
@@ -97,5 +103,7 @@ namespace api.Repository
             await _context.SaveChangesAsync();
             return existingStock;
         }
+
+
     }
 }
