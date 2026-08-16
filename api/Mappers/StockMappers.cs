@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Dtos;
+using api.Dtos.Stock;
 using api.Models;
 
 namespace api.Mappers
@@ -38,6 +39,18 @@ namespace api.Mappers
             };
         }
 
+        public static Stock ToStockFromFMP(this FMPStock fmpStock)
+        {
+            return new Stock
+            {
+                Symbol = fmpStock.symbol,
+                CompanyName = fmpStock.companyName,
+                PurchasePrice = (decimal)fmpStock.price,
+                LastDiv = (decimal)fmpStock.lastDividend,
+                Industry = fmpStock.industry,
+                MarketCap = fmpStock.marketCap
+            };
+        }
 
     }
 }
