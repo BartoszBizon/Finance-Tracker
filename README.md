@@ -1,12 +1,10 @@
 # Finance Tracker
 
-A full-stack finance tracking application built as a learning project while transitioning from Unity/C# development to backend .NET development.
+A finance tracking backend built with **C# and ASP.NET Core Web API** as a practical project for developing professional backend .NET skills.
 
-The project focuses primarily on the **ASP.NET Core Web API** backend. The frontend is included in the repository, but the main development focus is the backend architecture, database access, authentication, and API design.
+The main focus of the project is the backend: REST API design, database access, authentication and authorization, external API integration, dependency injection, and separation of responsibilities.
 
 ## Tech Stack
-
-### Backend
 
 - C#
 - .NET 10
@@ -20,31 +18,25 @@ The project focuses primarily on the **ASP.NET Core Web API** backend. The front
 - Dependency Injection
 - Repository Pattern
 - `HttpClientFactory`
-- External Financial Modeling Prep API
+- Financial Modeling Prep API
 
-### Frontend
-
-- React
-- TypeScript
-
-## Backend Features
+## Features
 
 - User registration and login
 - JWT authentication
 - Role-based authorization
 - Stock CRUD operations
 - Portfolio management
-- Comments for stocks
+- Stock comments
 - Pagination, filtering and sorting
 - Entity Framework Core migrations
 - Relational database mappings
-- Communication with an external financial API
+- External financial API integration
 - DTO-based API contracts
 - Repository-based data access
-- Dependency Injection
 - Swagger API documentation
 
-## Architecture
+## Backend Architecture
 
 The API is organized around controllers, DTOs, repositories, services, models and the EF Core database context.
 
@@ -81,9 +73,9 @@ ASP.NET Core Web API
 SQL Server
 ```
 
-## Authentication Flow
+## Authentication
 
-The application uses ASP.NET Core Identity for user management and JWT Bearer tokens for API authentication.
+The application uses **ASP.NET Core Identity** for user management and **JWT Bearer tokens** for API authentication and authorization.
 
 ```text
 Register / Login
@@ -101,7 +93,7 @@ JWT Token
 Authorization: Bearer <token>
        |
        v
-ASP.NET Core Authentication Middleware
+Authentication Middleware
        |
        v
 [Authorize]
@@ -115,25 +107,25 @@ Controller
 The backend contains endpoints for:
 
 - **Account** - registration, login and authentication
-- **Stocks** - create, read, update and delete stocks, including filtering, sorting and pagination
+- **Stocks** - CRUD operations, filtering, sorting and pagination
 - **Portfolios** - manage user stock portfolios
 - **Comments** - create, update and delete stock comments
 
-Swagger/OpenAPI can be used to explore and test the API during development.
+Swagger/OpenAPI is configured for exploring and testing the API during development.
 
 ## Database
 
-The current version uses **SQL Server** with Entity Framework Core.
+The current version uses **SQL Server** with **Entity Framework Core**.
 
-The project uses EF Core migrations to manage database schema changes and includes relationships between users, stocks, portfolios and comments.
+The project uses EF Core migrations to manage database schema changes and defines relationships between users, stocks, portfolios and comments.
 
-One of the planned improvements is migrating the project from **SQL Server to PostgreSQL using the Npgsql EF Core provider**.
+A planned next step is migrating the project from SQL Server to **PostgreSQL** using the **Npgsql EF Core provider**.
 
-## External API
+## External API Integration
 
 The backend communicates with the **Financial Modeling Prep (FMP)** API to retrieve financial market data.
 
-The integration uses `HttpClientFactory` and a dedicated service abstraction so that external API communication is separated from controllers and repositories.
+The integration uses `HttpClientFactory` and a dedicated service abstraction to keep external API communication separated from controllers and repositories.
 
 ## Running the Project
 
@@ -141,11 +133,11 @@ The integration uses `HttpClientFactory` and a dedicated service abstraction so 
 
 - .NET 10 SDK
 - SQL Server
-- A configured Financial Modeling Prep API key
+- Financial Modeling Prep API key
 
 ### Configuration
 
-Configure the required connection string, JWT settings and external API settings in the application's configuration (`appsettings.json` / user secrets / environment variables).
+Configure the required connection string, JWT settings and external API settings using application configuration, user secrets or environment variables.
 
 Do not commit real API keys, passwords or signing secrets to the repository.
 
@@ -163,13 +155,13 @@ Apply EF Core migrations when required:
 dotnet ef database update
 ```
 
-Swagger is available during development through the configured Swagger UI endpoint.
+Swagger is available through the configured Swagger UI endpoint during development.
 
 ## Learning Roadmap
 
 This project is also used as a practical backend learning environment.
 
-Planned next steps:
+Planned improvements:
 
 1. Strengthen ASP.NET Core and Web API fundamentals
 2. Deepen Entity Framework Core and SQL knowledge
@@ -183,4 +175,4 @@ Planned next steps:
 
 The goal is to build a production-oriented .NET backend while developing the skills required for a **mid-level Backend .NET Developer** role.
 
-The project intentionally uses real backend concepts such as authentication, authorization, database relationships, migrations, external API integration, dependency injection and layered separation of responsibilities instead of being limited to a simple CRUD example.
+The project focuses on practical backend concepts such as REST APIs, authentication, authorization, database relationships, migrations, external API integration, dependency injection and separation of responsibilities.
