@@ -14,6 +14,7 @@ The main focus of the project is the backend: REST API design, database access, 
 - ASP.NET Core Identity
 - JWT Bearer Authentication
 - Swagger / OpenAPI
+- Docker
 - LINQ
 - Dependency Injection
 - Repository Pattern
